@@ -1,3 +1,4 @@
+//Constant of colors
 export const colors = {
     primary: '#058ED9',
     background: '#CCCCCC',

@@ -1,7 +1,13 @@
+//React
 import React from "react";
+
+// React Native
 import { View, Text, StyleSheet} from "react-native";
+
+//Constants
 import { colors } from "../../constants/color";
 
+//Styles
 const styles = StyleSheet.create({
     container: {
         margin: 10,
@@ -13,9 +19,11 @@ const styles = StyleSheet.create({
     number: {
         textAlign: "center",
         fontSize: 30,
+        fontFamily: "pItalic",
     },
 })
 
+//Component
 const NumberContainer = ({children}) => {
     return (
         <View style={styles.container}>

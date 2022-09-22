@@ -17,10 +17,10 @@ import {
   Input,
   NumberContainer,
   ButtonGroup,
-} from "../components/index.js";
+} from "../../components/index.js";
 
 //Constants
-import { colors } from "../constants/color.js";
+import { colors } from "../../constants/color.js";
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginVertical: 20,
     fontSize: 30,
-    fontWeight: "bold",
+    fontFamily: "pBlack",
   },
   inputContainer: {
     alignItems: "center",
@@ -45,12 +45,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
     fontWeight: "800",
+    fontFamily: "pBlack",
   },
   textInput: {
     minWidth: 50,
     maxWidth: 80,
     textAlign: "center",
-    fontSize: 30,
+    fontSize: 20,
+    fontFamily: "pItalic",
   },
   buttonContainer: {},
   summaryContainer: {
@@ -63,21 +65,20 @@ const styles = StyleSheet.create({
   summaryText: {
     textAlign: "center",
     fontSize: 20,
-    fontWeight: "800",
+    fontFamily: "pBold",
   },
 });
 
+//Screen Component
 const StartGameScreen = ({ onStartGame }) => {
   const [number, setNumber] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState(0);
 
-  //Input validation
   const onHandleChange = (text) => {
     setNumber(text.replace(/[^0-9]/g, ""));
   };
 
-  // Button actions
   const onReset = () => {
     setNumber("");
     setSelectedNumber(0);
@@ -117,7 +118,7 @@ const StartGameScreen = ({ onStartGame }) => {
       }}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Start Game</Text>
+        <Text style={styles.title}>Empieza el juego</Text>
         <Card style={styles.inputContainer}>
           <Text style={styles.labelInput}>Elija un numero</Text>
           <Input

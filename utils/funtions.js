@@ -1,3 +1,4 @@
+ //Function generator of random numbers
  export const randomNumberGenerator = (min, max, exclude) => {
     min = Math.ceil(min);
     max = Math.floor(max);

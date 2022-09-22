@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     color: colors.white,
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "pBlack",
   },
 });
 
-//App
+//Component
 const Header = ({ title }) => {
   return (
     <View style={styles.header}>
@@ -30,5 +30,4 @@ const Header = ({ title }) => {
   );
 };
 
-// Export
 export default Header;

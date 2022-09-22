@@ -1,8 +1,15 @@
+// React
 import React from "react";
+
+// React Native
 import { StyleSheet, View, Text } from "react-native";
 
+//styles
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "80%",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -16,6 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
+//Component
 const Card = ({ children, style }) => {
   return (
   <View style={{ ...styles.container, ...style }}>
