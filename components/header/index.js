@@ -2,22 +2,24 @@
 import React from "react";
 
 // React Native
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Dimensions } from "react-native";
 import { colors } from "../../constants/color";
+
+//Dimensions
+const { width, height } = Dimensions.get("window");
 
 //styles
 const styles = StyleSheet.create({
   header: {
-    height: 100,
+    height: height * 0.1,
     backgroundColor: colors.primary,
     justifyContent: "center",
     alignItems: "center",
   },
   title: {
-    paddingTop: 50,
     color: colors.white,
     fontSize: 24,
-    fontFamily: "pBlack",
+    fontFamily: "PoppinsBlack",
   },
 });
 

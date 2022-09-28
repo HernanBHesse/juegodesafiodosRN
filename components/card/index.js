@@ -2,7 +2,7 @@
 import React from "react";
 
 // React Native
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 //styles
 const styles = StyleSheet.create({

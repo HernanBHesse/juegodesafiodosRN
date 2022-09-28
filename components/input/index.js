@@ -10,7 +10,7 @@ import { colors } from "../../constants/color";
 //Styles
 const styles = StyleSheet.create({
   input: {
-    marginVertical: 20,
+    marginVertical: 10,
     height: 30,
     borderBottomColor: colors.primary,
     borderBottomWidth: 3,

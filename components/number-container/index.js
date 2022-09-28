@@ -10,8 +10,8 @@ import { colors } from "../../constants/color";
 //Styles
 const styles = StyleSheet.create({
     container: {
-        margin: 10,
-        padding: 10,
+        margin: 5,
+        padding: 5,
         borderColor: colors.primary,
         borderWidth: 4,
         borderRadius: 20,
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     number: {
         textAlign: "center",
         fontSize: 30,
-        fontFamily: "pItalic",
+        fontFamily: "PoppinsItalic",
     },
 })
 

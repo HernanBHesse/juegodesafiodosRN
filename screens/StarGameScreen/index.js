@@ -9,6 +9,10 @@ import {
   Button,
   TouchableWithoutFeedback,
   Keyboard,
+  ScrollView,
+  Dimensions,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 
 //Components
@@ -22,50 +26,54 @@ import {
 //Constants
 import { colors } from "../../constants/color.js";
 
+//Dimensions
+const { height, width } = Dimensions.get("window");
+
+//Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    marginVertical: 10,
+    marginBottom: 30,
+  },
+  containerScroll: {
+    flex: 1,
   },
   title: {
     textAlign: "center",
-    marginVertical: 20,
     fontSize: 30,
-    fontFamily: "pBlack",
+    fontFamily: "PoppinsBold",
   },
   inputContainer: {
     alignItems: "center",
-    width: 350,
+    width: width * 0.8,
     maxWidth: "80%",
-    marginTop: 20,
+    marginTop: 10,
     padding: 10,
   },
   labelInput: {
     textAlign: "center",
     fontSize: 20,
-    fontWeight: "800",
-    fontFamily: "pBlack",
+    fontFamily: "PoppinsBold",
   },
   textInput: {
-    minWidth: 50,
-    maxWidth: 80,
+    width: width * 0.2,
     textAlign: "center",
     fontSize: 20,
-    fontFamily: "pItalic",
+    fontFamily: "PoppinsItalic",
   },
-  buttonContainer: {},
+  buttonContainer: {
+    width: width * 0.7,
+    marginBottom: 5,
+  },
   summaryContainer: {
-    alignItems: "center",
-    width: 250,
-    maxWidth: "80%",
     marginTop: 20,
     padding: 10,
   },
   summaryText: {
     textAlign: "center",
     fontSize: 20,
-    fontFamily: "pBold",
+    fontFamily: "PoppinsBold",
   },
 });
 
@@ -101,7 +109,7 @@ const StartGameScreen = ({ onStartGame }) => {
   const confirmedOut = () =>
     confirmed && (
       <Card style={styles.summaryContainer}>
-        <Text style={styles.summaryText}>Tu selección:</Text>
+        <Text style={styles.summaryText}>Tu selección es:</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
         <Button
           title="Empezar juego"
@@ -112,41 +120,49 @@ const StartGameScreen = ({ onStartGame }) => {
     );
 
   return (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        Keyboard.dismiss();
-      }}
+    <KeyboardAvoidingView
+    style={styles.containerScroll}
+      behavior={Platform.OS === "android" ? "padding" : "position"}
+      keyboardVerticalOffset={30}
     >
-      <View style={styles.container}>
-        <Text style={styles.title}>Empieza el juego</Text>
-        <Card style={styles.inputContainer}>
-          <Text style={styles.labelInput}>Elija un numero</Text>
-          <Input
-            style={styles.textInput}
-            keyboardType="numeric"
-            maxLength={2}
-            blurOnSubmit
-            autoCapitalize="none"
-            autoCorrect={false}
-            onChangeText={(text) => onHandleChange(text)}
-            value={number}
-          />
-          <ButtonGroup style={styles.buttonContainer}>
-            <Button
-              title="Cancelar"
-              onPress={onReset}
-              color={colors.dismissButton}
-            />
-            <Button
-              title="Comenzar"
-              onPress={onConfirm}
-              color={colors.acceptButton}
-            />
-          </ButtonGroup>
-        </Card>
-        {confirmedOut()}
-      </View>
-    </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          Keyboard.dismiss();
+        }}
+      >
+        <ScrollView>
+          <View style={styles.container}>
+            <Text style={styles.title}>Empieza el juego</Text>
+            <Card style={styles.inputContainer}>
+              <Text style={styles.labelInput}>Elija un numero</Text>
+              <Input
+                style={styles.textInput}
+                keyboardType="numeric"
+                maxLength={2}
+                blurOnSubmit
+                autoCapitalize="none"
+                autoCorrect={false}
+                onChangeText={(text) => onHandleChange(text)}
+                value={number}
+              />
+              <ButtonGroup style={styles.buttonContainer}>
+                <Button
+                  title="Cancelar"
+                  onPress={onReset}
+                  color={colors.dismissButton}
+                />
+                <Button
+                  title="Comenzar"
+                  onPress={onConfirm}
+                  color={colors.acceptButton}
+                />
+              </ButtonGroup>
+            </Card>
+            {confirmedOut()}
+          </View>
+        </ScrollView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 

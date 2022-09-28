@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   textInstruction: {
-    fontFamily: "pBold",
+    fontFamily: "PoppinsBold",
     fontSize: 16,
     color: colors.gray,
   },
